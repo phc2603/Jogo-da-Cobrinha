@@ -7,6 +7,7 @@ class Cobra:
         self.lista_objetos = []
         self.criando_cobrinha()
         self.head = self.lista_objetos[0]
+        self.velocidade = 12
 
     def criando_cobrinha(self):
         posicao_inicial_aux = 0
@@ -26,7 +27,7 @@ class Cobra:
             cord_x = self.lista_objetos[obj_aux-1].xcor()
             cord_y = self.lista_objetos[obj_aux-1].ycor()
             self.lista_objetos[obj_aux].goto(cord_x, cord_y)
-        self.head.forward(15)
+        self.head.forward(self.velocidade)
 
     def cima(self):
         if self.head.heading() != 270:
@@ -53,3 +54,4 @@ class Cobra:
         tart.speed("fastest")
         tart.goto(self.lista_objetos[-1].position())
         self.lista_objetos.append(tart)
+        self.velocidade *= 1.01
