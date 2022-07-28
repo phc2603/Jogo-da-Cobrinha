@@ -3,7 +3,6 @@ from cobra import Cobra
 from comida import Comida
 from pontuacao import Pontuacao
 import time
-lista_objetos = []
 tela = Screen()
 tela.tracer(0)
 
@@ -65,10 +64,8 @@ while jogando:
         cobra.lista_objetos[0].setpos(cobra.head.xcor(), -285)
 
     '#vefificando se a cobra atingiu o seu próprio corpo'
-    for i in cobra.lista_objetos:
-        if cobra.head == i:
-            pass
-        elif cobra.head.distance(i) < 10:
+    for i in cobra.lista_objetos[1:]:
+        if cobra.head.distance(i) < 10:
             pontuacao.derrota()
             jogando = False
             maior_pontuacao(pontuacao.pont_atual)
